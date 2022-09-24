@@ -8,6 +8,11 @@ public class Location {
     private static int nextId = 1;
     private String value;
 
+    public Location(String value) {
+        this();
+        this.value = value;
+    }
+
     public Location() {
         id = nextId;
         nextId++;
