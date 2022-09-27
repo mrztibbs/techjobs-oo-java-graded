@@ -70,4 +70,16 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+    public String toString () {
+        String msg = "Data not available";
+        String jobString;
+             if (this.id == 0) { jobString = "ID: " + msg + "\n";} else { jobString= "ID: " + id + "\n";}
+             if (this.name == "") {jobString = jobString + "Name: " + msg + "\n";} else {jobString = jobString + "Name: " + this.name + "\n";}
+             if (this.employer.getValue() == "") {jobString = jobString + "Employer: " + msg + "\n";} else {jobString = jobString + "Employer: " + this.employer + "\n";}
+             if (this.location.getValue() == "") {jobString = jobString + "Location: " + msg + "\n";} else {jobString = jobString + "Location: " + this.location + "\n";}
+             if (this.positionType.getValue() == "") {jobString = jobString + "Position Type: " + msg + "\n";} else {jobString = jobString + "Position Type: " + this.positionType + "\n";}
+             if (this.coreCompetency.getValue() == "") {jobString = jobString + "Core Competency: " + msg + "\n";} else {jobString = jobString + "Core Competency: " + this.coreCompetency;}
+        return jobString;
+    }
 }

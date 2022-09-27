@@ -2,40 +2,52 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
-public class JobField {
+public abstract class JobField {
 
-    private int id;
-    private String name;
-    private Employer employer;
-    private Location location;
-    private PositionType positionType;
-    private CoreCompetency coreCompetency;
-    public int getId() {return id;}
+    int id;
+    static int nextId = 1;
+    String value;
+    String name;
+    Employer employer;
+    Location location;
+    PositionType positionType;
+    CoreCompetency coreCompetency;
 
-    public String getName () {return name;}
+    public JobField() {
+        id = nextId;
+        nextId++;
+    }
 
-    public void setName (String name) {this.name = name;}
+    int getId() {return id;}
 
-    public Employer getEmployer() {return employer;}
+    String getName () {return name;}
 
-    public void setEmployer(Employer employer) {this.employer = employer;}
+    void setName (String name) {this.name = name;}
 
-    public Location getLocation() {return location;}
+    Employer getEmployer() {return employer;}
 
-    public void setLocation (Location location) {this.location = location;}
+    void setEmployer(Employer employer) {this.employer = employer;}
 
-    public PositionType getPositionType () {return positionType;}
+    Location getLocation() {return location;}
 
-    public void setPositionType(PositionType positionType) {this.positionType = positionType;}
+   void setLocation (Location location) {this.location = location;}
 
-    public CoreCompetency getCoreCompetency() {return coreCompetency;}
+    PositionType getPositionType () {return positionType;}
 
-    public void setCoreCompetency(CoreCompetency coreCompetency) {
+    void setPositionType(PositionType positionType) {this.positionType = positionType;}
+
+    CoreCompetency getCoreCompetency() {return coreCompetency;}
+
+    void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
 
     public int hashCode() {
         return Objects.hash(getId());
     }
+
+    public String getValue() {return value;}
+
+    public void setValue(String value) {this.value = value;}
 
 }
