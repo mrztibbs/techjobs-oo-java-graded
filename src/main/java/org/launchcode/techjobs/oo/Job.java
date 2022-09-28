@@ -20,11 +20,19 @@ public class Job {
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
-        this.name = name;
-        this.employer = employer;
-        this.location = location;
-        this.positionType = positionType;
-        this.coreCompetency = coreCompetency;
+        try {
+            this.name = name;
+            this.employer = employer;
+            this.location = location;
+            this.positionType = positionType;
+            this.coreCompetency = coreCompetency;
+        } catch(Exception e) {
+            if (this.getId() != 0 && this.name == "" || this.getEmployer().getValue() == ""
+                    || this.getLocation().getValue() == "" || this.getPositionType().getValue() == ""
+                    || this.getCoreCompetency().getValue() == "") {
+            System.out.println("OOPS! This job does not seem to exist.");
+            }
+        }
 
     }
 
@@ -74,12 +82,12 @@ public class Job {
     public String toString () {
         String msg = "Data not available";
         String jobString;
-             if (this.id == 0) { jobString = "ID: " + msg + "\n";} else { jobString= "ID: " + id + "\n";}
+             if (this.id == 0) { jobString = "\nID: " + msg + "\n";} else { jobString= "\nID: " + id + "\n";}
              if (this.name == "") {jobString = jobString + "Name: " + msg + "\n";} else {jobString = jobString + "Name: " + this.name + "\n";}
              if (this.employer.getValue() == "") {jobString = jobString + "Employer: " + msg + "\n";} else {jobString = jobString + "Employer: " + this.employer + "\n";}
              if (this.location.getValue() == "") {jobString = jobString + "Location: " + msg + "\n";} else {jobString = jobString + "Location: " + this.location + "\n";}
              if (this.positionType.getValue() == "") {jobString = jobString + "Position Type: " + msg + "\n";} else {jobString = jobString + "Position Type: " + this.positionType + "\n";}
-             if (this.coreCompetency.getValue() == "") {jobString = jobString + "Core Competency: " + msg + "\n";} else {jobString = jobString + "Core Competency: " + this.coreCompetency;}
+             if (this.coreCompetency.getValue() == "") {jobString = jobString + "Core Competency: " + msg + "\n";} else {jobString = jobString + "Core Competency: " + this.coreCompetency + "\n";}
         return jobString;
     }
 }
